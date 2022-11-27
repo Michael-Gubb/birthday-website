@@ -4,7 +4,7 @@ const findBirthday = (
   person: Person,
   currentDate: Date
 ): BirthdayWithMessage => {
-  return { birthday: person.birthdate, daysToBirthday: 4, message: "a" };
+  return { birthday: person.birthdate, daysToBirthday: 4, message: "TODO" };
 };
 
 export { findBirthday };

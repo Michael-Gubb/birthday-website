@@ -1,11 +1,11 @@
 import { findBirthday } from "./birthdayCalculator";
 import { test, expect } from "vitest";
 
-test("findBirthday", () => {
+test("Jan 20 is 10 days from Jan 10 ", () => {
   expect(
     findBirthday(
-      { id: 1, birthdate: "Jan 1 1980", name: "Bill Smith" },
-      new Date()
+      { id: 1, birthdate: "Jan 20 1980", name: "Bill Smith" },
+      new Date("Jan 10 2000")
     )
-  ).toMatchObject({ birthday: "Jan 1 1980", daysToBirthday: 4, message: "a" });
+  ).toMatchObject({ birthday: "Jan 20", daysToBirthday: 10, message: "TODO" });
 });

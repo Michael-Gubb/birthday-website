@@ -4,7 +4,17 @@ const findBirthday = (
   person: Person,
   currentDate: Date
 ): BirthdayWithMessage => {
-  return { birthday: person.birthdate, daysToBirthday: 4, message: "TODO" };
+  const birthdateSplit = person.birthdate.split(" ");
+  const birthday = `${birthdateSplit[0]} ${birthdateSplit[1]}`;
+  console.log(birthdateSplit[1], currentDate.getDay());
+
+  const daystoBirthDay = Number(birthdateSplit[1]) - currentDate.getDate();
+
+  return {
+    birthday: birthday,
+    daysToBirthday: daystoBirthDay,
+    message: "TODO",
+  };
 };
 
 export { findBirthday };

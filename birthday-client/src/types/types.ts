@@ -4,4 +4,9 @@ interface Person {
   name: string;
 }
 
-export type { Person };
+interface BirthdayWithMessage {
+  birthday: string;
+  message: string;
+}
+
+export type { Person, BirthdayWithMessage };

@@ -6,7 +6,6 @@ const findBirthday = (
 ): BirthdayWithMessage => {
   const birthdateSplit = person.birthdate.split(" ");
   const birthday = `${birthdateSplit[0]} ${birthdateSplit[1]}`;
-  console.log(birthdateSplit[1], currentDate.getDay());
 
   const daystoBirthDay = Number(birthdateSplit[1]) - currentDate.getDate();
 

@@ -6,6 +6,7 @@ interface Person {
 
 interface BirthdayWithMessage {
   birthday: string;
+  daysToBirthday: number;
   message: string;
 }
 

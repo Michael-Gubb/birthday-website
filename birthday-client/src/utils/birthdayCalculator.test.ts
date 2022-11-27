@@ -7,5 +7,5 @@ test("findBirthday", () => {
       { id: 1, birthdate: "Jan 1 1980", name: "Bill Smith" },
       new Date()
     )
-  ).toMatchObject({ birthday: "Jan 1 1980", message: "a" });
+  ).toMatchObject({ birthday: "Jan 1 1980", daysToBirthday: 4, message: "a" });
 });

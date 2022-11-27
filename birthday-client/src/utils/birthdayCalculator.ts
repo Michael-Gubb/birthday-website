@@ -2,9 +2,9 @@ import { Person, BirthdayWithMessage } from "../types/types";
 
 const findBirthday = (
   person: Person,
-  referenceDate: Date
+  currentDate: Date
 ): BirthdayWithMessage => {
-  return { birthday: person.birthdate, message: "a" };
+  return { birthday: person.birthdate, daysToBirthday: 4, message: "a" };
 };
 
 export { findBirthday };

@@ -1,18 +1,14 @@
 import { FunctionComponent } from "react";
+import { Person } from "./types/types";
+import people from "./data/testPersons.json";
 import "./App.css";
 
-const event = new Date("August 19 1995");
-
-interface DateDisplayProps {
-  name: string;
-  date: Date;
-}
-
-const DateDisplay: FunctionComponent<DateDisplayProps> = (person) => {
+const DateDisplay: FunctionComponent<Person> = (person) => {
   return (
     <div>
       <h2>{person.name}</h2>
-      <p>{person.date.toLocaleString()}</p>
+      <p>CURRENTLY DISPLAYING BIRTHDATE: {person.birthdate}</p>
+      <p>TODO: DISPLAY BIRTHDAY AND DAYS TO BIRTHDAY</p>
     </div>
   );
 };
@@ -22,7 +18,12 @@ function App() {
     <>
       <h1>List of birthdays</h1>
       <div className="App">
-        <DateDisplay date={event} name={"Person 1"} />
+        <DateDisplay
+          key={people[0].id}
+          id={people[0].id}
+          birthdate={people[0].birthdate}
+          name={people[0].name}
+        />
       </div>
     </>
   );

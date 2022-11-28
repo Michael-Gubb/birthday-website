@@ -12,11 +12,11 @@ const DateDisplayElement: FunctionComponent<DateDisplayElementProps> = ({
 }) => {
   const { birthday, daysToBirthday } = findBirthday(person, new Date());
   return (
-    <div>
+    <li>
       <h2>{person.name}</h2>
       <p>Birthday: {birthday}</p>
       <p>Days to birthday: {daysToBirthday} </p>
-    </div>
+    </li>
   );
 };
 

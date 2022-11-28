@@ -1,5 +1,4 @@
 import { DateDisplay } from "./components/DateDisplay";
-import people from "./data/testPersons";
 import "./App.css";
 
 function App() {

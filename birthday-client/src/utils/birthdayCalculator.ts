@@ -1,7 +1,7 @@
 import { Person, BirthdayWithMessage } from "../types/types";
 import monthNamesToNum from "../data/monthNamesToNum";
 
-const daysInMonthsNotLeapYear = [
+const daysInMonthsNotLeapYear: Array<number> = [
   31, 28, 31, 30, 31, 30, 31, 30, 31, 30, 31, 30,
 ];
 let cumulativeDaysInMonthsNotLeapYear: Array<number> = [];
@@ -22,24 +22,23 @@ const findBirthday = (
   // if birthday is after current date this year
   // days to birthday is (birthday - current day) in days,
   // plus(total days in months upto including birthday) - (total days in months upto including current day)
+  // if birthday is before then add 364 (if not leap year in between)
+  // TODO: leap year logic
 
-  const birthdateSplit = person.birthdate.split(" ");
-  const birthday = `${birthdateSplit[0]} ${birthdateSplit[1]}`;
+  const birthdateSplit: Array<string> = person.birthdate.split(" ");
+  const birthday: string = `${birthdateSplit[0]} ${birthdateSplit[1]}`;
 
-  const birthdayMonth = monthNamesToNum[birthdateSplit[0]];
+  const birthdayMonth: number = monthNamesToNum[birthdateSplit[0]];
 
-  const daystoBirthDay =
+  let daystoBirthDay: number =
     Number(birthdateSplit[1]) -
     currentDate.getDate() +
     cumulativeDaysInMonthsNotLeapYear[birthdayMonth] -
     cumulativeDaysInMonthsNotLeapYear[currentDate.getMonth()];
 
-  console.log(
-    Number(birthdateSplit[1]),
-    currentDate.getDate(),
-    +cumulativeDaysInMonthsNotLeapYear[birthdayMonth],
-    cumulativeDaysInMonthsNotLeapYear[currentDate.getMonth()]
-  );
+  if (daystoBirthDay < 0) {
+    daystoBirthDay += 364;
+  }
 
   return {
     birthday: birthday,

@@ -3,7 +3,7 @@ import { findBirthday } from "../utils/birthdayCalculator";
 import { Person } from "../types/types";
 
 const DateDisplay: FunctionComponent<Person> = (person) => {
-  const { birthday } = findBirthday(person);
+  const { birthday } = findBirthday(person, new Date());
   return (
     <div>
       <h2>{person.name}</h2>

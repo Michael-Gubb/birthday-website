@@ -10,12 +10,12 @@ interface DateDisplayElementProps {
 const DateDisplayElement: FunctionComponent<DateDisplayElementProps> = ({
   person,
 }) => {
-  const { birthday } = findBirthday(person, new Date());
+  const { birthday, daysToBirthday } = findBirthday(person, new Date());
   return (
     <div>
       <h2>{person.name}</h2>
-      <p>CURRENTLY DISPLAYING BIRTHDATE: {birthday}</p>
-      <p>TODO: DISPLAY BIRTHDAY AND DAYS TO BIRTHDAY</p>
+      <p>Birthday: {birthday}</p>
+      <p>Days to birthday: {daysToBirthday} </p>
     </div>
   );
 };

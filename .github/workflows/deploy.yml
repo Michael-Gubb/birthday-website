@@ -13,8 +13,8 @@ jobs:
       run:
         working-directory: "birthday-client"
     env:
-      VITE_SUPABASE_KEY: ${{env.VITE_SUPABASE_KEY}}
-      VITE_SUPABASE_URL: ${{env.VITE_SUPABASE_URL}}
+      VITE_SUPABASE_KEY: ${{secrets.VITE_SUPABASE_KEY}}
+      VITE_SUPABASE_URL: ${{secrets.VITE_SUPABASE_URL}}
       
     steps:
       - name: Checkout repo

@@ -1,8 +1,12 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import { findBirthday } from "../utils/birthdayCalculator";
 import { Person } from "../types/types";
+import { createClient } from "@supabase/supabase-js";
 import peopleFromFile from "../data/testPersons";
 
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabase = createClient(supabaseUrl ?? "", supabaseKey ?? "");
 interface DateDisplayElementProps {
   person: Person;
 }
@@ -41,10 +45,26 @@ const DateDisplay: FunctionComponent = () => {
   const [people, setPeople] = useState<Person[]>([]);
 
   useEffect(() => {
+    const getPeople = async () => {
+      let { data: people } = await supabase
+        .from("people")
+        .select("id,birth_date,name");
+
+      const convertedPeople: Person[] =
+        people?.map((person) => {
+          return {
+            id: person.id,
+            birthdate: person.birth_date,
+            name: person.name,
+          };
+        }) ?? peopleFromFile;
+
+      setPeople(convertedPeople);
+    };
     let ignore = false;
     if (!ignore) {
       // put fetch logic here
-      setPeople(peopleFromFile);
+      getPeople();
     }
     return () => {
       ignore = true;

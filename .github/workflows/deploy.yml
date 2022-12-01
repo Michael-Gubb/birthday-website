@@ -12,7 +12,10 @@ jobs:
     defaults:
       run:
         working-directory: "birthday-client"
-
+    env:
+      VITE_SUPABASE_KEY: ${{env.VITE_SUPABASE_KEY}}
+      VITE_SUPABASE_URL: ${{env.VITE_SUPABASE_URL}}
+      
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3

@@ -51,7 +51,7 @@ const DateDisplay: FunctionComponent = () => {
         .select("id,birth_date,name");
 
       const convertedPeople: Person[] =
-        people?.map((person) => {
+        people?.map((person: any) => {
           return {
             id: person.id,
             birthdate: person.birth_date,
